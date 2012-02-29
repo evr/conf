@@ -59,6 +59,8 @@ set expandtab
 "-------------------------------------
 "sth 4 convenience
 imap jj <esc>
+map <C-PageUp> <HOME>
+map <C-P> <ESC>$i
 map <C-A> ggVG
 map <C-C> "+y
 cnoremap <C-J> <Home>
@@ -90,8 +92,10 @@ map <leader>p :cp<CR>
 
 autocmd FileType c,cpp,java :set cindent
 autocmd FileType c,cpp :map <F5> :make %< <CR>
+autocmd FileType c,cpp :map <F7> :!g++ -g % -o %< && gdb %< <CR>
 autocmd FileType c,cpp :map <F6> :!./%< <CR>
-
+autocmd FileType java :map <F5> :!javac % <CR>
+autocmd FileType java :map <F6> :!java %< <CR>
 "-------------------------------------
 "LaTeX & Markdown
 autocmd FileType tex :map <F5> :!latex % && dvipdf %:r.dvi <CR>
@@ -100,8 +104,8 @@ autocmd FileType markdown :map <F5> :!pandoc % -o %:r.pdf --latex-engine xelatex
 
 "-------------------------------------
 "Dictionary
-map <leader>k :!dict <cword> -d wn && ~/newword.sh <cword><CR>
-vmap <leader>j "zdi<C-R>z<ESC>:!dict <C-R>z -d wn && ~/newword.sh <C-R>z<CR>
+map <leader>k :!~/newword.sh <cword><CR>
+vmap <leader>j "zdi<C-R>z<ESC>:!~/newword.sh <C-R>z<CR>
 
 "-------------------------------------
 "encoding

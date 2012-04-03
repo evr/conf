@@ -1,6 +1,8 @@
 "------------------------------------"
 "General
+set nocompatible
 set history=700
+set backspace=indent,eol,start
 
 filetype plugin indent on
 
